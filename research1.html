@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Research</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        html {
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+        }
+
+        .container-fluid {
+            max-width: 1360px;
+        }
+
+        html, * {
+            font-family: 'Helvetica Neue', sans-serif !important;
+        }
+
+        @supports (font-variation-settings: normal) {
+            html, * {
+                font-family: 'Inter var', sans-serif !important;
+            }
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .authors, .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            /*max-width: 600px;*/
+            margin: 0 auto;
+        }
+
+        .authors {
+            max-width: 900px;
+        }
+
+        .buttons {
+            max-width: 500px;
+        }
+
+        .affils {
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        .teasertext {
+            position: absolute;
+            left: 6.5%;
+            top: 12.5%;
+            width: 36%;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        .caption {
+            display: block;
+            width: 350px;
+            font-size: 0.8em;
+        }
+
+        .teaserfig {
+            width: 350px;
+            border-radius: .25rem;
+        }
+
+        .abstract {
+            display: flex;
+        }
+
+        .abstracttext {
+            font-size: 0.95em;
+        }
+
+        .publications {
+            display: flex;
+        }
+
+        .publicationstext {
+            font-size: 0.95em;
+        }
+
+        pre {
+            font-size: 87.5%;
+            white-space: pre-wrap;
+            color: #e83e8c;
+        }
+
+        .ptgrid {
+            grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+            gap: 10px;
+            /*padding: 10px;*/
+            grid-row-gap: 10px;
+            display: grid;
+            justify-items: center;
+        }
+
+        .ptep {
+            display: grid;
+            padding: 15px;
+            border-radius: .25rem;
+            grid-template-columns: repeat(3, minmax(135px, 1fr)) 1px minmax(135px, 1fr);
+            grid-template-rows: auto auto auto 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 5px;
+            background-color: #f8f9fa !important;
+            max-width: 900px;
+        }
+
+        .ptep img {
+            width: 100%;
+            border-radius: .25rem;
+        }
+
+        .refsetlbl {
+            grid-area: 1 / 1 / 2 / 4;
+            font-weight: bold;
+        }
+
+        .tgtlbl {
+            grid-area: 1 / 5 / 2 / 5;
+            font-weight: bold;
+        }
+
+        .im0 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .im1 {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+
+        .im2 {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+
+        .imtgt {
+            grid-area: 2 / 5 / 3 / 5;
+        }
+
+        .txt0 {
+            grid-area: 3 / 1 / 4 / 2;
+        }
+
+        .txt1 {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+
+        .txt2 {
+            grid-area: 3 / 3 / 4 / 4;
+        }
+
+        .txttgt {
+            grid-area: 3 / 5 / 4 / 5;
+        }
+
+        .pred {
+            padding: 2px 0;
+            margin-top: 5px;
+            border-radius: .25rem;
+            display: inline-block;
+        }
+
+        .pred.hover {
+            padding: 2px 4px;
+            background-color: rgb(52, 58, 64);
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .gt {
+            padding: 2px 4px;
+            border: 1px rgb(52, 58, 64) solid;
+            /*color: #fff;*/
+            border-radius: .25rem;
+            display: inline-block;
+            margin-top: 5px;
+            word-break: break-all;
+            transition: all 0.12s ease-in;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+        }
+
+        .gt:hover {
+            background-color: rgba(52, 58, 64, 0.2);
+        }
+
+        .pct {
+            font-size: 0.85em;
+            /*margin-left: 8px;*/
+            /*word-break: break-word;*/
+            word-break: break-word;
+            display: none;
+        }
+
+        .pred.hover .pct {
+            display: inline;
+        }
+
+        .pred.hover .predw {
+            margin-right: 8px;
+        }
+
+        .ptep p {
+            padding: 2px 0;
+            display: inline-block;
+            margin: 0;
+            margin-top: 5px;
+        }
+
+        /*  .gt:hover:after {
+              position: absolute;
+              content: "";
+              height: calc(100% + 100px);
+              top: -50px;
+              left: -100px;
+              right: -100px;
+              !*background-color: rgba(255,0,0,0.5);*!
+          }*/
+
+        @media (max-width: 767px) {
+
+            .abstract {
+                display: block;
+            }
+
+            .publications {
+                display: block;
+            }
+
+            .teaser {
+                text-align: center;
+            }
+
+            .captioncont {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .figcont {
+                display: inline-block;
+            }
+
+            .abstracttext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .publicationstext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .papercont {
+                padding: 0;
+                text-align: center;
+            }
+
+
+            .papersubcont {
+                display: inline-block !important;
+                text-align: center;
+            }
+
+            .paper {
+            }
+
+            .paperinfo {
+            }
+
+            .ptep {
+                grid-template-columns: repeat(3, minmax(90px, 1fr)) 1px minmax(90px, 1fr);
+            }
+
+            pre {
+                max-width: 350px;
+                text-align: left;
+            }
+
+            .pred {
+                /*word-break: break-word;*/
+                word-break: break-all;
+            }
+
+            .ptgrid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+
+            .pct {
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .container-fluid {
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid text-dark p-5">
+    <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+        <h2>Research</h2>
+        <div class="authors mt-4">
+            <a href="https://www.didacsuris.com">Dídac Surís<sup>1*</sup></a>
+            <a href="https://cv.cs.columbia.edu/dave">Dave Epstein<sup>1*</sup></a>
+            <a href="https://blender.cs.illinois.edu/hengji.html">Heng Ji<sup>2</sup></a>
+            <a href="https://www.ee.columbia.edu/~sfchang/">Shih-Fu Chang<sup>1</sup></a>
+            <a href="http://carlvondrick.com">Carl Vondrick<sup>1</sup></a>
+        </div>
+        <div class="affils mt-1">
+            <sup>1</sup> Columbia University<br/>
+            <sup>2</sup> University of Illinois at Urbana-Champaign
+        </div>
+        <div class="buttons mt-4">
+            <a href="https://arxiv.org/abs/1911.11237" class="btn btn-outline-primary">Paper</a>
+            <a href="https://github.com/cvlab-columbia/expert" class="btn btn-outline-primary">Code and model</a>
+        </div>
+    </div>
+    <section class="abstract mt-4">
+        <h5>Current Research</h5>
+        <div class="teaser p-3 p-md-0">
+            <div style="position: relative" class="figcont">
+                <img src="teaser.svg" class="teaserfig" alt="Teaser figure"/>
+                <span class="teasertext">then, I spread the ghee on the roti</span>
+            </div>
+            <div class="captioncont">
+                <span class="caption mt-2"><b> Can you figure out what “ghee” and “roti” are?</b>
+                <a href='#' data-toggle="tooltip" data-placement="bottom"
+                    title="“ghee” is the butter on the knife and “roti” is the bread in the pan">Hover to show the answer.</a>
+            Although the words “ghee” and “roti” may be unfamiliar to you, you are able to leverage the structure of the visual world and knowledge of other words to learn new words.
+                    <!--                In this paper, we propose a model that learns how to learn words from visual context.-->
+                </span>
+            </div>
+        </div>
+        <div class="abstracttext p-3 p-md-0 pl-md-4">
+            <p>When we travel, we often encounter new scenarios we have never experienced before, with new sights and
+                new
+                words that describe them. We can use our language-learning ability to quickly learn these new words and
+                correlate them with the visual world. In contrast, language models often do not robustly generalize to
+                novel
+                words and compositions.</p>
+            <p>We propose a framework that learns how to learn text representations from visual
+                context. Experiments show that our approach significantly outperforms the state-of-the-art in visual
+                language modeling for acquiring new words and predicting new compositions. Model ablations and
+                visualizations suggest that the visual modality helps our approach more robustly generalize at these
+                tasks.</p>
+        </div>
+    </section>
+</div>
+
+<div class="darker">
+    <div class="container">
+        <div>
+            <div class="row">
+            <div class="order-0 col-12 px-4 papers-container papers-selected">
+            <h4 class="paperhi">Current Research</h4>
+            <p>
+                I am interested in the study and development of nanomaterials towrads functional applications in nanophotonics.
+            </p>
+
+
+            <h5 class="paperlo">Avalanching Nanoparticles @ Schuck Lab, Columbia University, NY</h5>
+            <div class="teaser p-3 p-md-0">
+                <div class="captioncont">
+                Although the words “ghee” and “roti” may be unfamiliar to you, you are able to leverage the structure of the visual world and knowledge of other words to learn new words.
+                </div>
+                <div style="position: relative" class="figcont">
+                    <img src="UCNP.jpeg" class="teaserfig" alt="Teaser figure"/>
+                    <span class="teasertext">then, I spread the ghee on the roti</span>
+                </div>
+            </div>
+            <p>
+                I am interested in the study and development of nanomaterials towrads functional applications in nanophotonics.
+            </p>
+
+            
+            <h5 class="pt-2 pb-1">Nano-optics @ Schuck Lab, Columbia University, NY</h5>
+            <p>
+                I am interested in the study and development of nanomaterials towrads functional applications in nanophotonics.
+            </p>
+            <h5 class="pt-2 pb-1">Metamaterial Fabrication @ CINT, Los Alamos National Laboratory, NM</h5>
+            <p>
+                I am interested in the study and development of nanomaterials towrads functional applications in nanophotonics.
+            </p>
+            <h5 class="pt-2 pb-1">Ultrafast THz Spectroscopy @ CINT, Los Alamos National Laboratory, NM</h5>
+            <p>
+                I am interested in the study and development of nanomaterials towrads functional applications in nanophotonics.
+            </p>
+
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="darker">
+        <div class="container">
+        <div>
+          <div class="row">
+            <div class="order-0 col-12 px-4 papers-container papers-selected">
+        
+        
+              <a name="papers"/>
+         
+              <div class="paperhi paperhi-only">
+                <h4>Papers
+                </h4>
+              </div>
+                
+                <h5 class="pt-2 pb-1">2022</h5>
+                    <div class="publication media paperhi">
+                    <a href="https://voicecamo.cs.columbia.edu"><img alt="" src="UCNP.jpeg" class="publogo float-left rounded g" width="100"></a>
+                    <div class="media-body">
+                    <p><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189">Manipulation of Exciton Dynamics in Single-Layer WSe2 Using a Toroidal Dielectric Metasurface</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                        Long Yuan, Jeeyoon Jeong, <b>Kevin W.C. Kwock</b>, Emanuil S. Yanev, Michael Grandel, Daniel A. Rhodes, Ting S. Luk, P. James Schuck, Dmitry Yarotski, James C. Hone, Igal Brener, and Rohit P. Prasankumar<br>
+                    <i>Nano Letters</i> 2022 (Oral)<br>
+                    
+                    <p>Metamaterials are often great systems to ....</p>
+                      <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+                      Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+                      avalanching heterogeneity of these nanoparticles?</p>
+  
+                    <span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189">Paper</a> <a href="https://voicecamo.cs.columbia.edu">Project Page</a></span>
+                    </div>
+                    </div>
+  
+                    <div class="publication media paperhi">
+                      <a href="https://arxiv.org/abs/2111.10493"><img alt="" src="discrete.png" class="publogo float-left rounded g" width="100"></a>
+                      <div class="media-body">
+                      <p><strong><a href="https://arxiv.org/abs/2111.10493">Discrete Representations Strengthen Vision Transformer Robustness</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                      Chengzhi Mao, Lu Jiang, Mostafa Dehghani, Carl Vondrick, Rahul Sukthankar, Irfan Essa<br>
+                      ICLR 2022<br>
+                      <span class="links"><a href="https://arxiv.org/abs/2111.10493">Paper</a></span>
+                      </div>
+                      </div>
+
+
+                <h5 class="pt-2 pb-1">2021</h5>
+        
+                    <div class="publication media paperhi">
+                    <a href="https://voicecamo.cs.columbia.edu"><img alt="" src="camo.gif" class="publogo float-left rounded g" width="100"></a>
+                    <div class="media-body">
+                    <p><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189">Manipulation of Exciton Dynamics in Single-Layer WSe2 Using a Toroidal Dielectric Metasurface</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                        Long Yuan, Jeeyoon Jeong, <b>Kevin W.C. Kwock</b>, Emanuil S. Yanev, Michael Grandel, Daniel A. Rhodes, Ting S. Luk, P. James Schuck, Dmitry Yarotski, James C. Hone, Igal Brener, and Rohit P. Prasankumar<br>
+                    <i>Nano Letters</i> 2022 (Oral)<br>
+                    
+                    <p>Metamaterials are often great systems to ....</p>
+                      <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+                      Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+                      avalanching heterogeneity of these nanoparticles?</p>
+  
+                    <span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189">Paper</a> <a href="https://voicecamo.cs.columbia.edu">Project Page</a></span>
+                    </div>
+                    </div>
+
+                  <div class="publication media paperhi">
+                  <a href="https://voicecamo.cs.columbia.edu"><img alt="" src="camo.gif" class="publogo float-left rounded g" width="100"></a>
+                  <div class="media-body">
+                  <p><strong><a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721">Surface-Sensitive Photon Avalanche Behavior Revealed by Single-Avalanching-Nanoparticle Imaging</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                    <b>Kevin W.C. Kwock</b>, Changhwan Lee, Ayelet Teitelboim, Yawei Liu, Kaiyuan Yao, Sardar B. Alam, Bruce E. Cohen, Emory M. Chan, and P. James Schuck<br>
+                  <i>Journal of Physical Chemistry C</i> 2022 (Oral)<br>
+                  
+                  <p>Imperfections are everywhere. They persist in bulk materials, (e.g. two snowflakes can rarely be identical or grain boundaries in metals). 
+                    In nanomaterials, imperfections manifest as atomic defects and become more relevant as one reduces the lateral sizes of the nanomaterial further. 
+                    Approaching the atomic limit, nanomaterial properties being to depend significantly on the size, shape, defect densities since material 
+                    dimensions begin to transition from classical towards quantum explanations of material behavior. This is also why integrated circuit design nowadays 
+                    seem to have plateaued at around 2 nm processes – defects on this order drastically affect your device performance!</p>
+                    <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+                    Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+                    avalanching heterogeneity of these nanoparticles?</p>
+
+                  <span class="links"><a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721">Paper</a> <a href="https://voicecamo.cs.columbia.edu">Project Page</a></span>
+                  </div>
+                  </div>
+
+                  <div class="publication media paperhi">
+                    <a href="https://arxiv.org/abs/2111.10493"><img alt="" src="discrete.png" class="publogo float-left rounded g" width="100"></a>
+                    <div class="media-body">
+                    <p><strong><a href="https://arxiv.org/abs/2111.10493">Discrete Representations Strengthen Vision Transformer Robustness</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                    Chengzhi Mao, Lu Jiang, Mostafa Dehghani, Carl Vondrick, Rahul Sukthankar, Irfan Essa<br>
+                    ICLR 2022<br>
+                    <span class="links"><a href="https://arxiv.org/abs/2111.10493">Paper</a></span>
+                    </div>
+                    </div>
+
+
+                <h5 class="pt-2 pb-1">2020</h5>
+                    <div class="publication media paperhi">
+                    <a href="https://voicecamo.cs.columbia.edu"><img alt="" src="UCNP.jpeg" class="publogo float-left rounded g" width="100"></a>
+                    <div class="media-body">
+                    <p><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acsami.0c18390">Damage-Free Atomic Layer Etch of WSe2: A Platform for Fabricating Clean Two-Dimensional Devices</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                        Ankur Nipane*, Min Sup Choi*, Punnu Jose Sebastian, Kaiyuan Yao, Abhinandan Borah, Prathmesh Deshmukh, Younghun Jung, Bumho Kim, Anjaly Rajendran, 
+                        <b>Kevin W.C. Kwock</b>, Amirali Zangiabadi, Vinod M. Menon, P. James Schuck, Won Jong Yoo, James Hone, and James T. Teherani*<br>
+                    <i>ACS Applied Material Interfaces</i> 2020 (Oral)<br>
+                    
+                    <p>Metamaterials are often great systems to ....</p>
+                      <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+                      Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+                      avalanching heterogeneity of these nanoparticles?</p>
+  
+                    <span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acsami.0c18390">Paper</a> <a href="https://voicecamo.cs.columbia.edu">Project Page</a></span>
+                    </div>
+                    </div>
+  
+
+                <h5 class="pt-2 pb-1">2018</h5>
+                    <div class="publication media paperhi">
+                    <a href="https://voicecamo.cs.columbia.edu"><img alt="" src="UCNP.jpeg" class="publogo float-left rounded g" width="100"></a>
+                    <div class="media-body">
+                    <p><strong><a href="https://pubs.rsc.org/en/content/articlehtml/2017/fd/c7fd00154a">Design principles from multiscale simulations to predict nanostructure in self-assembling ionic liquids</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                        Benjamin T. Nebgen, Harsha D. Magurudeniya, <b>Kevin W.C. Kwock</b>, Bryan S. Ringstrand, Towfiq Ahmed, Sönke Seifert, Jian-Xin Zhu, Sergei Tretiak, Millicent A. Firestone<br>
+                    <i>RSC Faraday Discussions</i> 2018 (Oral)<br>
+                    
+                    <p>Metamaterials are often great systems to ....</p>
+                      <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+                      Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+                      avalanching heterogeneity of these nanoparticles?</p>
+  
+                    <span class="links"><a href="https://pubs.rsc.org/en/content/articlehtml/2017/fd/c7fd00154a">Paper</a> <a href="https://voicecamo.cs.columbia.edu">Project Page</a></span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+
+<div class="container">
+    <div>
+    
+    
+      <div class="row">
+    
+        <div class="col-lg-6 col-12 px-4 order-1">
+    
+          <a name="honors"/>
+    
+          <h4>Honors</h4>
+            <ul>
+                <li>Laboratory Residency Graduate Fellow, Spring 2022</li>
+                <li>Representation Learning, Fall 2021</li>
+                <li><a href="https://drive.google.com/drive/folders/1WBraYFj2umBYm4yf057BqIJKtwP5KAP5?usp=sharing">Computer Vision II, Summer 2021</a></li>
+                <li>Representation Learning, Fall 2020</li>
+                <li><a href="https://sites.google.com/view/w4731computervision-fall2019/home">Computer Vision, Fall 2019</a></li>
+                <li><a href="cs6998">Advanced Computer Vision, Spring 2019</a></li>
+                <li><a href="http://w4731.cs.columbia.edu">Computer Vision, Fall 2018</a></li>
+          </ul>
+    </div>
+</div>
+    
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function RGBA(e, alpha) { //e = jQuery element, alpha = background-opacity
+        b = e.css('backgroundColor');
+        e.css('backgroundColor', 'rgba' + b.slice(b.indexOf('('), ((b.match(/,/g).length == 2) ? -1 : b.lastIndexOf(',') - b.length)) + ', ' + alpha + ')');
+    }
+
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#firstgt').tooltip('show').on('hidden.bs.tooltip', function () {
+            $(this).tooltip('dispose');
+        });
+        $('.gt').mouseenter(function (e) {
+            $('#firstgt').tooltip('hide');
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text($(this).attr('data-gt'));
+            });
+            $(this).closest('.ptep').find('.pred').addClass('hover').each(function () {
+                var a = $(this).find('.pct').text().slice(0, -1) / 100;
+                RGBA($(this), a);
+                if (a < 0.2) {
+                    $(this).css('color', 'rgb(52, 58, 64)')
+                }
+            });
+        }).mouseleave(function (e) {
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text('MASK');
+            });
+            $(this).closest('.ptep').find('.pred').removeClass('hover').each(function () {
+                $(this).css('color', '');
+                $(this).css('backgroundColor', '');
+            });
+        });
+
+    })
+</script>
+</body>
+</html>
