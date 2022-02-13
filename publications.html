@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Publications</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        html {
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+        }
+
+        .container-fluid {
+            max-width: 1360px;
+        }
+
+        html, * {
+            font-family: 'Helvetica Neue', sans-serif !important;
+        }
+
+        @supports (font-variation-settings: normal) {
+            html, * {
+                font-family: 'Inter var', sans-serif !important;
+            }
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .authors, .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            /*max-width: 600px;*/
+            margin: 0 auto;
+        }
+
+        .authors {
+            max-width: 900px;
+        }
+
+        .buttons {
+            max-width: 500px;
+        }
+
+        .affils {
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        .teasertext {
+            position: absolute;
+            left: 6.5%;
+            top: 12.5%;
+            width: 36%;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        .caption {
+            display: block;
+            width: 350px;
+            font-size: 0.8em;
+        }
+
+        .teaserfig {
+            width: 350px;
+            border-radius: .25rem;
+        }
+
+        .abstract {
+            display: flex;
+        }
+
+        .abstracttext {
+            font-size: 0.95em;
+        }
+
+        .publications {
+            display: flex;
+        }
+
+        .publicationstext {
+            font-size: 0.95em;
+        }
+
+        pre {
+            font-size: 87.5%;
+            white-space: pre-wrap;
+            color: #e83e8c;
+        }
+
+        .ptgrid {
+            grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+            gap: 10px;
+            /*padding: 10px;*/
+            grid-row-gap: 10px;
+            display: grid;
+            justify-items: center;
+        }
+
+        .ptep {
+            display: grid;
+            padding: 15px;
+            border-radius: .25rem;
+            grid-template-columns: repeat(3, minmax(135px, 1fr)) 1px minmax(135px, 1fr);
+            grid-template-rows: auto auto auto 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 5px;
+            background-color: #f8f9fa !important;
+            max-width: 900px;
+        }
+
+        .ptep img {
+            width: 100%;
+            border-radius: .25rem;
+        }
+
+        .refsetlbl {
+            grid-area: 1 / 1 / 2 / 4;
+            font-weight: bold;
+        }
+
+        .tgtlbl {
+            grid-area: 1 / 5 / 2 / 5;
+            font-weight: bold;
+        }
+
+        .im0 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .im1 {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+
+        .im2 {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+
+        .imtgt {
+            grid-area: 2 / 5 / 3 / 5;
+        }
+
+        .txt0 {
+            grid-area: 3 / 1 / 4 / 2;
+        }
+
+        .txt1 {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+
+        .txt2 {
+            grid-area: 3 / 3 / 4 / 4;
+        }
+
+        .txttgt {
+            grid-area: 3 / 5 / 4 / 5;
+        }
+        .publogo { margin-right : 20px; }
+        .publogo-soon { background: rgb(157,157,157)}
+        .pred {
+            padding: 2px 0;
+            margin-top: 5px;
+            border-radius: .25rem;
+            display: inline-block;
+        }
+
+        .pred.hover {
+            padding: 2px 4px;
+            background-color: rgb(52, 58, 64);
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .gt {
+            padding: 2px 4px;
+            border: 1px rgb(52, 58, 64) solid;
+            /*color: #fff;*/
+            border-radius: .25rem;
+            display: inline-block;
+            margin-top: 5px;
+            word-break: break-all;
+            transition: all 0.12s ease-in;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+        }
+
+        .gt:hover {
+            background-color: rgba(52, 58, 64, 0.2);
+        }
+
+        .pct {
+            font-size: 0.85em;
+            /*margin-left: 8px;*/
+            /*word-break: break-word;*/
+            word-break: break-word;
+            display: none;
+        }
+
+        .pred.hover .pct {
+            display: inline;
+        }
+
+        .pred.hover .predw {
+            margin-right: 8px;
+        }
+
+        .ptep p {
+            padding: 2px 0;
+            display: inline-block;
+            margin: 0;
+            margin-top: 5px;
+        }
+
+        /*  .gt:hover:after {
+              position: absolute;
+              content: "";
+              height: calc(100% + 100px);
+              top: -50px;
+              left: -100px;
+              right: -100px;
+              !*background-color: rgba(255,0,0,0.5);*!
+          }*/
+
+        @media (max-width: 767px) {
+
+            .abstract {
+                display: block;
+            }
+
+            .publications {
+                display: block;
+            }
+
+            .teaser {
+                text-align: center;
+            }
+
+            .captioncont {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .figcont {
+                display: inline-block;
+            }
+
+            .abstracttext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .publicationstext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .papercont {
+                padding: 0;
+                text-align: center;
+            }
+
+
+            .papersubcont {
+                display: inline-block !important;
+                text-align: center;
+            }
+
+            .paper {
+            }
+
+            .paperinfo {
+            }
+
+            .ptep {
+                grid-template-columns: repeat(3, minmax(90px, 1fr)) 1px minmax(90px, 1fr);
+            }
+
+            pre {
+                max-width: 350px;
+                text-align: left;
+            }
+
+            .pred {
+                /*word-break: break-word;*/
+                word-break: break-all;
+            }
+
+            .ptgrid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+
+            .pct {
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .container-fluid {
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid text-dark p-5">
+    <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+        <h2>Publications</h2>
+        <div class="authors mt-4">
+            <a href="https://www.kkwock.com/home.html" class="btn btn-outline-primary">Home<sup></sup></a>
+            <a href="https://www.kkwock.com/research.html" class="btn btn-outline-primary">Research<sup></sup></a>
+            <a href="https://www.kkwock.com/publications.html" class="btn btn-outline-primary">Publications<sup></sup></a>
+            <a href="https://www.kkwock.com/about-me.html" class="btn btn-outline-primary">About Me<sup></sup></a>
+            <a href="https://www.kkwock.com/etc.html" class="btn btn-outline-primary">Etc...<sup></sup></a>
+        </div>
+        <!-- <div class="affils mt-1">
+            <sup>1</sup> Columbia University<br/>
+            <sup>2</sup> University of Illinois at Urbana-Champaign
+        </div>
+        <div class="buttons mt-4">
+            <a href="https://arxiv.org/abs/1911.11237" class="btn btn-outline-primary">Paper</a>
+            <a href="https://github.com/cvlab-columbia/expert" class="btn btn-outline-primary">Code and model</a>
+        </div> -->
+    </div>
+
+    <div class="paperhi">
+        <h4><b>Publications</b></h4>
+    </div>
+        
+        <!-- <h5 class="pt-2 pb-1">2022</h5>
+            <div class="publication media paperhi">
+            <a href="https://voicecamo.cs.columbia.edu"><img alt="" src="UCNP.jpeg" class="publogo float-left rounded g" width="200"></a>
+            <div class="media-body">
+            <p><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189">Manipulation of Exciton Dynamics in Single-Layer WSe<sub>2</sub> Using a Toroidal Dielectric Metasurface</a></strong> <span class="badge bg-danger text-light">New!</span><br>
+                Long Yuan, Jeeyoon Jeong, <b>Kevin W.C. Kwock</b>, Emanuil S. Yanev, Michael Grandel, Daniel A. Rhodes, Ting S. Luk, P. James Schuck, Dmitry Yarotski, James C. Hone, Igal Brener, and Rohit P. Prasankumar<br>
+            <i>Nano Letters</i> 2022 (Oral)<br>
+            
+            <p>Metamaterials are often great systems to ....</p>
+            <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+            Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+            avalanching heterogeneity of these nanoparticles?</p>
+
+            <p><span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189" class="btn btn-outline-primary">Paper</a></span>
+                <span class="links"><a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721" class="btn btn-outline-primary">PDF</a></span></p>
+            </div>
+            </div> -->
+
+
+        <h5 class="pt-2 pb-1">2021</h5>
+
+            <div class="publication media paperhi">
+            <a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189"><img alt="" src="pub_yuan21.png" class="publogo float-left rounded g" width="200"></a>
+            <div class="media-body">
+            <p><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189">Manipulation of Exciton Dynamics in Single-Layer WSe<sub>2</sub> Using a Toroidal Dielectric Metasurface</a></strong> <br>
+                Long Yuan, Jeeyoon Jeong, <b>Kevin W.C. Kwock</b>, Emanuil S. Yanev, Michael Grandel, Daniel A. Rhodes, Ting S. Luk, P. James Schuck, Dmitry Yarotski, James C. Hone, Igal Brener, and Rohit P. Prasankumar<br>
+            <i>Nano Letters</i> 21(23), 9930–9938, 2021<br>
+            
+            <p>Coupling two-dimensional semiconductors with all-dielectric resonant nanostructures represents an especially attractive opportunity for manipulating optical properties in both the near-field and far-field regimes. 
+                Here, by integrating single-layer WSe<sub>2</sub> and titanium oxide (TiO<sub>2</sub>) dielectric metasurfaces with toroidal resonances, we realized robust exciton emission enhancement over 1 order of magnitude at both room and low temperatures.</p>
+
+            <p><span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189" class="btn btn-outline-primary">Paper</a></span>
+                <span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.1c03189" class="btn btn-outline-primary">PDF</a></span></p>
+            </div>
+            </div>
+            <br>
+            <div class="publication media paperhi">
+            <a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721"><img alt="" src="pub_kwock21.png" class="publogo float-left rounded g" width="200"></a>
+            <div class="media-body">
+            <p><strong><a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721">Surface-Sensitive Photon Avalanche Behavior Revealed by Single-Avalanching-Nanoparticle Imaging</a></strong> <br>
+                <b>Kevin W.C. Kwock</b>, Changhwan Lee, Ayelet Teitelboim, Yawei Liu, Kaiyuan Yao, Sardar B. Alam, Bruce E. Cohen, Emory M. Chan, and P. James Schuck<br>
+            <i>Journal of Physical Chemistry C</i> 125(43), 23976–23982, 2021 <br>
+            
+            <p>Imperfections are everywhere. They persist in bulk materials, (e.g. two snowflakes can rarely be identical or grain boundaries in metals). 
+                In nanomaterials, imperfections manifest as atomic defects and become more relevant as one reduces the lateral sizes of the nanomaterial further. 
+                Approaching the atomic limit, nanomaterial properties begin to depend significantly on their size, shape, defect densities since material 
+                dimensions begin to transition from classical towards quantum material behavior. This is also why integrated circuit design nowadays 
+                seem to have plateaued at around 2 nm processes – defects on this order drastically affect device performances!</p>
+                <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+                Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+                avalanching heterogeneity of these nanoparticles?</p>
+
+            <p><span class="links"><a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721" class="btn btn-outline-primary">Paper</a></span>
+                <span class="links"><a href="https://pubs.acs.org/doi/10.1021/acs.jpcc.1c07721" class="btn btn-outline-primary">PDF</a></span></p>
+            </div>
+            </div>
+            <br>
+            <div class="publication media paperhi">
+                <a href="https://pubs.acs.org/doi/abs/10.1021/acsami.0c18390"><img alt="" src="pub_nipane20.png" class="publogo float-left rounded g" width="200"></a>
+                <div class="media-body">
+                <p><strong><a href="https://pubs.acs.org/doi/abs/10.1021/acsami.0c18390">Damage-Free Atomic Layer Etch of WSe<sub>2</sub>: A Platform for Fabricating Clean Two-Dimensional Devices</a></strong> <br>
+                    Ankur Nipane*, Min Sup Choi*, Punnu Jose Sebastian, Kaiyuan Yao, Abhinandan Borah, Prathmesh Deshmukh, Younghun Jung, Bumho Kim, Anjaly Rajendran, 
+                    <b>Kevin W.C. Kwock</b>, Amirali Zangiabadi, Vinod M. Menon, P. James Schuck, Won Jong Yoo, James Hone, and James T. Teherani*<br>
+                <i>ACS Applied Material Interfaces</i> 13(1), 1930-1942, 2021 <br>
+                
+                <p>In this work, we propose a selective, damage-free atomic layer etch (ALE) that enables layer-by-layer removal of monolayer WSe<sub>2</sub> without altering the physical, 
+                    optical, and electronic properties of the underlying layers</p>
+    
+                <p><span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acsami.0c18390" class="btn btn-outline-primary">Paper</a></span>
+                    <span class="links"><a href="https://pubs.acs.org/doi/abs/10.1021/acsami.0c18390" class="btn btn-outline-primary">PDF</a></span></p>
+            </div>
+            </div>
+
+
+        <h5 class="pt-2 pb-1">2018</h5>
+            <div class="publication media paperhi">
+            <a href="https://pubs.rsc.org/en/content/articlehtml/2017/fd/c7fd00154a"><img alt="" src="pub_nebgen18.png" class="publogo float-left rounded g" width="200"></a>
+            <div class="media-body">
+            <p><strong><a href="https://pubs.rsc.org/en/content/articlehtml/2017/fd/c7fd00154a">Design principles from multiscale simulations to predict nanostructure in self-assembling ionic liquids</a></strong> <br>
+                Benjamin T. Nebgen, Harsha D. Magurudeniya, <b>Kevin W.C. Kwock</b>, Bryan S. Ringstrand, Towfiq Ahmed, Sönke Seifert, Jian-Xin Zhu, Sergei Tretiak, Millicent A. Firestone<br>
+            <i>RSC Faraday Discussions</i> 206, 159-181, 2018<br>
+            
+            <p>Molecular dynamics simulations (up to the nanoscale) were performed on the 3-methyl-1-pentylimidazolium ionic liquid cation paired with three anions; chloride, nitrate, 
+                and thiocyanate as aqueous mixtures, using the effective fragment potential (EFP) method, a computationally inexpensive way of modeling intermolecular interactions. The 
+                simulations provided insight (preferred geometries, radial distribution functions and theoretical proton NMR resonances) into the interactions within the ionic domain and 
+                are validated against <sup>1</sup>H NMR spectroscopy and small- and wide-angle X-ray scattering experiments on 1-decyl-3-methylimidazolium.</p>
+
+
+            <p><span class="links"><a href="https://pubs.rsc.org/en/content/articlehtml/2017/fd/c7fd00154a" class="btn btn-outline-primary">Paper</a></span>
+                <span class="links"><a href="https://pubs.rsc.org/en/content/articlehtml/2017/fd/c7fd00154a" class="btn btn-outline-primary">PDF</a></span></p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<footer>
+    <div class="container-fluid text-dark p-5">
+        <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+            <p style="color:gray;font-size:10px;">Website template was largely inspired by Dave Epstein</p>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function RGBA(e, alpha) { //e = jQuery element, alpha = background-opacity
+        b = e.css('backgroundColor');
+        e.css('backgroundColor', 'rgba' + b.slice(b.indexOf('('), ((b.match(/,/g).length == 2) ? -1 : b.lastIndexOf(',') - b.length)) + ', ' + alpha + ')');
+    }
+
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#firstgt').tooltip('show').on('hidden.bs.tooltip', function () {
+            $(this).tooltip('dispose');
+        });
+        $('.gt').mouseenter(function (e) {
+            $('#firstgt').tooltip('hide');
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text($(this).attr('data-gt'));
+            });
+            $(this).closest('.ptep').find('.pred').addClass('hover').each(function () {
+                var a = $(this).find('.pct').text().slice(0, -1) / 100;
+                RGBA($(this), a);
+                if (a < 0.2) {
+                    $(this).css('color', 'rgb(52, 58, 64)')
+                }
+            });
+        }).mouseleave(function (e) {
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text('MASK');
+            });
+            $(this).closest('.ptep').find('.pred').removeClass('hover').each(function () {
+                $(this).css('color', '');
+                $(this).css('backgroundColor', '');
+            });
+        });
+
+    })
+</script>
+</body>
+</html>

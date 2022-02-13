@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Research</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        html {
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+        }
+
+        .container-fluid {
+            max-width: 1360px;
+        }
+
+        html, * {
+            font-family: 'Helvetica Neue', sans-serif !important;
+        }
+
+        @supports (font-variation-settings: normal) {
+            html, * {
+                font-family: 'Inter var', sans-serif !important;
+            }
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .authors, .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            /*max-width: 600px;*/
+            margin: 0 auto;
+        }
+
+        .authors {
+            max-width: 900px;
+        }
+
+        .buttons {
+            max-width: 500px;
+        }
+
+        .affils {
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        .teasertext {
+            position: absolute;
+            left: 6.5%;
+            top: 12.5%;
+            width: 36%;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        .caption {
+            display: block;
+            width: 450px;
+            font-size: 0.8em;
+        }
+
+        .teaserfig {
+            width: 450px;
+            border-radius: .25rem;
+        }
+
+        .abstract {
+            display: flex;
+        }
+
+        .abstracttext {
+            font-size: 0.95em;
+        }
+
+        .publications {
+            display: flex;
+        }
+
+        .publicationstext {
+            font-size: 0.95em;
+        }
+
+        pre {
+            font-size: 87.5%;
+            white-space: pre-wrap;
+            color: #e83e8c;
+        }
+
+        .ptgrid {
+            grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+            gap: 10px;
+            /*padding: 10px;*/
+            grid-row-gap: 10px;
+            display: grid;
+            justify-items: center;
+        }
+
+        .ptep {
+            display: grid;
+            padding: 15px;
+            border-radius: .25rem;
+            grid-template-columns: repeat(3, minmax(135px, 1fr)) 1px minmax(135px, 1fr);
+            grid-template-rows: auto auto auto 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 5px;
+            background-color: #f8f9fa !important;
+            max-width: 900px;
+        }
+
+        .ptep img {
+            width: 100%;
+            border-radius: .25rem;
+        }
+
+        .refsetlbl {
+            grid-area: 1 / 1 / 2 / 4;
+            font-weight: bold;
+        }
+
+        .tgtlbl {
+            grid-area: 1 / 5 / 2 / 5;
+            font-weight: bold;
+        }
+
+        .im0 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .im1 {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+
+        .im2 {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+
+        .imtgt {
+            grid-area: 2 / 5 / 3 / 5;
+        }
+
+        .txt0 {
+            grid-area: 3 / 1 / 4 / 2;
+        }
+
+        .txt1 {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+
+        .txt2 {
+            grid-area: 3 / 3 / 4 / 4;
+        }
+
+        .txttgt {
+            grid-area: 3 / 5 / 4 / 5;
+        }
+        .publogo { margin-right : 20px; }
+        .publogo-soon { background: rgb(157,157,157)}
+        .pred {
+            padding: 2px 0;
+            margin-top: 5px;
+            border-radius: .25rem;
+            display: inline-block;
+        }
+
+        .pred.hover {
+            padding: 2px 4px;
+            background-color: rgb(52, 58, 64);
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .gt {
+            padding: 2px 4px;
+            border: 1px rgb(52, 58, 64) solid;
+            /*color: #fff;*/
+            border-radius: .25rem;
+            display: inline-block;
+            margin-top: 5px;
+            word-break: break-all;
+            transition: all 0.12s ease-in;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+        }
+
+        .gt:hover {
+            background-color: rgba(52, 58, 64, 0.2);
+        }
+
+        .pct {
+            font-size: 0.85em;
+            /*margin-left: 8px;*/
+            /*word-break: break-word;*/
+            word-break: break-word;
+            display: none;
+        }
+
+        .pred.hover .pct {
+            display: inline;
+        }
+
+        .pred.hover .predw {
+            margin-right: 8px;
+        }
+
+        .ptep p {
+            padding: 2px 0;
+            display: inline-block;
+            margin: 0;
+            margin-top: 5px;
+        }
+
+        /*  .gt:hover:after {
+              position: absolute;
+              content: "";
+              height: calc(100% + 100px);
+              top: -50px;
+              left: -100px;
+              right: -100px;
+              !*background-color: rgba(255,0,0,0.5);*!
+          }*/
+
+        @media (max-width: 767px) {
+
+            .abstract {
+                display: block;
+            }
+
+            .publications {
+                display: block;
+            }
+
+            .teaser {
+                text-align: center;
+            }
+
+            .captioncont {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .figcont {
+                display: inline-block;
+            }
+
+            .abstracttext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .publicationstext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .papercont {
+                padding: 0;
+                text-align: center;
+            }
+
+
+            .papersubcont {
+                display: inline-block !important;
+                text-align: center;
+            }
+
+            .paper {
+            }
+
+            .paperinfo {
+            }
+
+            .ptep {
+                grid-template-columns: repeat(3, minmax(90px, 1fr)) 1px minmax(90px, 1fr);
+            }
+
+            pre {
+                max-width: 350px;
+                text-align: left;
+            }
+
+            .pred {
+                /*word-break: break-word;*/
+                word-break: break-all;
+            }
+
+            .ptgrid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+
+            .pct {
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .container-fluid {
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid text-dark p-5">
+        <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+            <h2>Research</h2>
+            <div class="authors mt-4">
+                <a href="https://www.kkwock.com/home.html" class="btn btn-outline-primary">Home<sup></sup></a>
+                <a href="https://www.kkwock.com/research.html" class="btn btn-outline-primary">Research<sup></sup></a>
+                <a href="https://www.kkwock.com/publications.html" class="btn btn-outline-primary">Publications<sup></sup></a>
+                <a href="https://www.kkwock.com/about-me.html" class="btn btn-outline-primary">About Me<sup></sup></a>
+                <a href="https://www.kkwock.com/etc.html" class="btn btn-outline-primary">Etc...<sup></sup></a>
+            </div>
+            <!-- <div class="affils mt-1">
+                <sup>1</sup> Columbia University<br/>
+                <sup>2</sup> University of Illinois at Urbana-Champaign
+            </div>
+            <div class="buttons mt-4">
+                <a href="https://arxiv.org/abs/1911.11237" class="btn btn-outline-primary">Paper</a>
+                <a href="https://github.com/cvlab-columbia/expert" class="btn btn-outline-primary">Code and model</a>
+            </div> -->
+        </div>
+
+    <div class="paperhi">
+        <h4><b>Current Research</b></h4>
+            <section class="abstract mt-4">
+                <div class="teaser p-3 p-md-0">
+                    <div style="position: relative" class="figcont">
+                        <img src="res_UCNP.png" class="teaserfig" alt="Teaser figure"/>
+                    </div>
+                    <div class="captioncont">
+                        <span class="caption mt-2"><b> A single upconverting nanoparticle.</b>
+                            Upconverting and Avalanching Nanoparticles are inert, ceramic nanoparticles that are doped with rare-earth lanthanides. As visualized here 
+                            by a graphic, a single nanoparticle can contain as many as 100+ lanthanide ions, all of which exchange energy to enable photon upconversion.
+                            <!--                In this paper, we propose a model that learns how to learn words from visual context.-->
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8  pl-4 pb-4 py-0 py-md-1 nameplate">
+                    <h5 class="pt-2 pb-1">Upconverting and Avalanching Nanoparticles</h5>
+
+                    <br>
+                    <p>Lanthanides are everywhere. They exist in your handheld devices, LIDAR electronics, and pretty much anything that contains a laser. What makes them fascinating
+                    optical materials to study is that they simply have lifetimes extending into the microseconds, making them excellent optical gain materials for lasing. In 
+                    particular, upconverting nanoparticles have been designed to take advantage of these long lifetimes and uses them to excite higher level electrons in their 4f
+                    orbitals. A series of energy transfer exchanges 
+                    between several lantahnides and their excited states within the nanoparticle enable upconversion, a process where the absorption of two sequential photons
+                    lead to the emission of a single, higher-energy photon. In doing so, these upconverting nanoparticles can 'upconvert' low-energy infrared photons into higher-energy visible photons for imaging applications. 
+                    Currently, avalanching nanoparticles, poised as a next-generation nonlinear material, can not only upconvert, but also release >2 visible photons (and up to 30 even!) at the same instance,
+                    making them one of the most nonlinear nanomaterials to-date.
+
+                    Currently, I am studying...
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </p>
+                </div>
+            </section>
+
+            <section class="abstract mt-4">
+                <div class="teaser p-3 p-md-0">
+                    <div style="position: relative" class="figcont">
+                        <img src="res_nearfield_nanopl.png" class="teaserfig" alt="Teaser figure"/>
+                    </div>
+                    <div class="captioncont">
+                        <span class="caption mt-2"><b> High-resolution nano-optical imaging of a single monolayer MoS<sub>2</sub>.</b>
+                            Monolayer transition metal dichalcogenides, such as MoS<sub>2</sub>, are often 10-50um in lateral sizes. However, imaging materials smaller than 1um is non-trivial.
+                            Nano-optics allows material as small as 10um to be visualized with nanometer resolutions.
+                            <!--                In this paper, we propose a model that learns how to learn words from visual context.-->
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8  pl-4 pb-4 py-0 py-md-1 nameplate">
+                    <h5 class="pt-2 pb-1">Nano-optics</h5>
+
+                    <br>
+                    <p>Nano-optics has recently emerged as an exciting imaging modality to probe nanoscale materials. In particular, I am interested in the development of other relatively unexplored
+                        nano-optical techniques, such as nano-second harmonic generation and nano-photocurrent mapping. In the far-field, second harmonic generation has already been demonstrated to be sensitive to 
+                        crystal orientation and structure. Pursuing nano-second harmonic generation with nano-optics will likely enable the understanding local strain/symmetries in delicate 2D material systems
+                        that are theorized to host intricate correlated-electronic phenomena. Also, unlike fair-field photo-current mapping, other modalities such as nano-photocurrent mapping will also be critical 
+                        in understanding local electrostatic forces at the nanoscale.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </p>
+                </div>
+            </section>
+
+            <section class="abstract mt-4">
+                <div class="teaser p-3 p-md-0">
+                    <div style="position: relative" class="figcont">
+                        <img src="res_metamaterial_anapole.png" class="teaserfig" alt="Teaser figure"/>
+                    </div>
+                    <div class="captioncont">
+                        <span class="caption mt-2"><b> Carefully tailored toroidal structure design can tune the metamaterial system's optical response. </b>
+                            Here, a toroidal resonator has a mode profile that contains an enhancement in the in-plane E-field, and an out-of-plane B-field. Careful metamaterial
+                            design can be used in a atonishing ways, for e.g. coupling light to weakly-emitting materials.
+                            <!--                In this paper, we propose a model that learns how to learn words from visual context.-->
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8  pl-4 pb-4 py-0 py-md-1 nameplate">
+                    <h5 class="pt-2 pb-1">Metamaterials</h5>
+
+                    <br>
+                    <p>A rapidly developing research area, metamaterials are bound to play unexpected roles in technology in the 21st century. Among the many are:
+                        improving medical imaging resolution through the metamaterial-modulation of the point spread function, integration with AR/VR 
+                        for holographic displays, and enhanced photo-generation in photovoltaics. Here, I am interested in the tailoring and coupling of metamaterials
+                        to enhance the properties of nanomaterials.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </p>
+                </div>
+            </section>
+
+            <section class="abstract mt-4">
+                <div class="teaser p-3 p-md-0">
+                    <div style="position: relative" class="figcont">
+                        <img src="res_ultrafast_cri3.png" class="teaserfig" alt="Teaser figure"/>
+                    </div>
+                    <div class="captioncont">
+                        <span class="caption mt-2"><b> Ultrafast pump-probe spectroscopy can be used to visualize the demagnetization dynamics of CrI<sub>3</sub>.</b>
+                            Correlated systems often host a plethora of exotic quasi-particles and metastable states that have short lifetimes (picoseconds). 
+                            <!--                In this paper, we propose a model that learns how to learn words from visual context.-->
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8  pl-4 pb-4 py-0 py-md-1 nameplate">
+                    <h5 class="pt-2 pb-1">Ultrafast Spectroscopy</h5>
+
+                    <br>
+                    <p> Ultrafast spectroscopy allows scientists such as myself to understand the temporaly dynamics of a material system with temporal resolutions
+                        down to picosecond timescales. In particular, I am interested in exploring more ways in how THz spectroscopy (a subset of ultrafast) can drive
+                        material dyanmics so that one may acuqire all-optical control of nanomaterial systems. 
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </p>
+                </div>
+            </div>
+
+<!-- 
+
+    </div>
+        <h5 class="pt-2 pb-1">Upconverting and Avalanching Nanoparticles</h5>
+        <div class="publication media paperhi">
+        <a><img alt="" src="res_UCNP.png" class="publogo float-left rounded g" width="400"></a>
+        <div class="media-body">
+        <p>Lanthanides are everywhere. They exist in your handheld devices, LIDAR electronics, and pretty much anything that contains a laser. What makes them fascinating
+            optical materials to study is that they simply have lifetimes extending into the microseconds, making them excellent optical gain materials for lasing. In 
+            particular, upconverting nanoparticles have been designed to take advantage of these long lifetimes and uses them to excite higher level electrons in their 4f
+            orbitals. In doing so, these upconverting nanoparticles can 'upconvert' low-energy infrared photons into higher-energy visible photons for imaging applications. 
+            Currently, avalanching nanoparticles, poised as a next-generation nonlinear material, can not only upconvert, but also release >2 visible photons (and up to 30 even!) at the same instance,
+            making them one of the most nonlinear nanomaterials to-date.
+        </p>
+        </div>
+        </div> <br><br>
+
+        <h5 class="pt-2 pb-1">Nano-optics</h5>
+        <div class="publication media paperhi">
+        <a><img alt="" src="res_nearfield_nanopl.png" class="publogo float-left rounded g" width="400"></a>
+        <div class="media-body">
+        <p>Nano-optics enables microscopy (or nanoscopy) at sub-diffraction limit length scales. Taking advantage of the condensed electromagnetic mode of a plasmonic antenna,
+            scientists like ourselves have begun to unravel physics that occurs at the nanometer length scales. In particular 
+        </p>
+        </div>
+        </div> <br><br>
+
+        <h5 class="pt-2 pb-1">Metamaterials</h5>
+        <div class="publication media paperhi">
+        <a><img alt="" src="res_metamaterial_anapole.png" class="publogo float-left rounded g" width="400"></a>
+        <div class="media-body">
+        <p>Metamaterials are often great systems to ....</p>
+        <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+        Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+        avalanching heterogeneity of these nanoparticles?
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. </p>
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+                    working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+                    Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+                    and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+                    and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+                    M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+                    Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+                    working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+                    Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+                    and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+                    and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+                    M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        </div>
+        </div> <br><br>
+
+        <h5 class="pt-2 pb-1">Ultrafast Spectroscopy</h5>
+        <div class="publication media paperhi">
+        <a><img alt="" src="res_ultrafast_cri3.png" class="publogo float-left rounded g" width="400"></a>
+        <div class="media-body">
+        <p>Metamaterials are often great systems to ....</p>
+        <p>In this project, we investigated the particle-particle optical heterogeneity of avalanching nanoparticles, a new class of steeply nonlinear nanomaterials. 
+        Nanoparticle synthesis itself often produces nanoparticles that vary in shapes and sizes. How can particle core/shell sizes influence the optical 
+        avalanching heterogeneity of these nanoparticles?
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+        working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+        Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+        and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+        and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+        M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. </p>
+        Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+                    working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+                    Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+                    and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+                    and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+                    M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+                    Hello there! My name is Kevin and I was born and raised on O‘ahu, Hawai‘i. I grew up with the most intense, yet, loveable
+                    working class immigrant family. I attended Punahou School (yea, go buff 'n blue!) and am proud to have attended 
+                    Case Western Reserve University in the quaint embrace of the American Midwest. There, I received my B.S. in Engineering Physics 
+                    and B.A. in Music, with a concentration in Piano and Harpsichord studies. Upon graduating, I did a 180º on my promise to head west, 
+                    and went east instead to start my M.S./Ph.D. Electrical Engineering studies at Columbia University. And here I am now, completing year 4 (out of 6) in my
+                    M.S./Ph.D. program with the coolest group of researchers in nanoscience, led nano-optics expert P. James Schuck. 
+        </div>
+        </div> <br><br>
+<br>
+<br>
+<br>
+<br>
+<br> -->
+
+
+        <h4><b>Previous Research</b></h4>
+
+        <div>
+            <h5 class="pt-2 pb-1">Self-assembled and H<sub>2</sub>O-tunable structures from polymeric ionic liquids</h5>
+            <h5 class="pt-2 pb-1">PVD growth of ternary, low bandgap semiconductors, ZnSnSb<sub>2</sub></h5>
+
+        </div>
+        </div>
+    </section>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>
+    <div class="container-fluid text-dark p-5">
+        <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+            <p style="color:gray;font-size:10px;">Website template was largely inspired by Dave Epstein</p>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function RGBA(e, alpha) { //e = jQuery element, alpha = background-opacity
+        b = e.css('backgroundColor');
+        e.css('backgroundColor', 'rgba' + b.slice(b.indexOf('('), ((b.match(/,/g).length == 2) ? -1 : b.lastIndexOf(',') - b.length)) + ', ' + alpha + ')');
+    }
+
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#firstgt').tooltip('show').on('hidden.bs.tooltip', function () {
+            $(this).tooltip('dispose');
+        });
+        $('.gt').mouseenter(function (e) {
+            $('#firstgt').tooltip('hide');
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text($(this).attr('data-gt'));
+            });
+            $(this).closest('.ptep').find('.pred').addClass('hover').each(function () {
+                var a = $(this).find('.pct').text().slice(0, -1) / 100;
+                RGBA($(this), a);
+                if (a < 0.2) {
+                    $(this).css('color', 'rgb(52, 58, 64)')
+                }
+            });
+        }).mouseleave(function (e) {
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text('MASK');
+            });
+            $(this).closest('.ptep').find('.pred').removeClass('hover').each(function () {
+                $(this).css('color', '');
+                $(this).css('backgroundColor', '');
+            });
+        });
+
+    })
+</script>
+</body>
+</html>

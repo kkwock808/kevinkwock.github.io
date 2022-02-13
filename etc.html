@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Etc...</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        html {
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+        }
+
+        .container-fluid {
+            max-width: 1360px;
+        }
+
+        html, * {
+            font-family: 'Helvetica Neue', sans-serif !important;
+        }
+
+        @supports (font-variation-settings: normal) {
+            html, * {
+                font-family: 'Inter var', sans-serif !important;
+            }
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .authors, .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            /*max-width: 600px;*/
+            margin: 0 auto;
+        }
+
+        .authors {
+            max-width: 900px;
+        }
+
+        .buttons {
+            max-width: 500px;
+        }
+
+        .affils {
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        .teasertext {
+            position: absolute;
+            left: 6.5%;
+            top: 12.5%;
+            width: 36%;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        .caption {
+            display: block;
+            width: 350px;
+            font-size: 0.8em;
+        }
+
+        .teaserfig {
+            width: 350px;
+            border-radius: .25rem;
+        }
+
+        .abstract {
+            display: flex;
+        }
+
+        .abstracttext {
+            font-size: 0.95em;
+        }
+
+        .publications {
+            display: flex;
+        }
+
+        .publicationstext {
+            font-size: 0.95em;
+        }
+
+        pre {
+            font-size: 87.5%;
+            white-space: pre-wrap;
+            color: #e83e8c;
+        }
+
+        .ptgrid {
+            grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+            gap: 10px;
+            /*padding: 10px;*/
+            grid-row-gap: 10px;
+            display: grid;
+            justify-items: center;
+        }
+
+        .ptep {
+            display: grid;
+            padding: 15px;
+            border-radius: .25rem;
+            grid-template-columns: repeat(3, minmax(135px, 1fr)) 1px minmax(135px, 1fr);
+            grid-template-rows: auto auto auto 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 5px;
+            background-color: #f8f9fa !important;
+            max-width: 900px;
+        }
+
+        .ptep img {
+            width: 100%;
+            border-radius: .25rem;
+        }
+
+        .refsetlbl {
+            grid-area: 1 / 1 / 2 / 4;
+            font-weight: bold;
+        }
+
+        .tgtlbl {
+            grid-area: 1 / 5 / 2 / 5;
+            font-weight: bold;
+        }
+
+        .im0 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .im1 {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+
+        .im2 {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+
+        .imtgt {
+            grid-area: 2 / 5 / 3 / 5;
+        }
+
+        .txt0 {
+            grid-area: 3 / 1 / 4 / 2;
+        }
+
+        .txt1 {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+
+        .txt2 {
+            grid-area: 3 / 3 / 4 / 4;
+        }
+
+        .txttgt {
+            grid-area: 3 / 5 / 4 / 5;
+        }
+        .publogo { margin-right : 20px; }
+        .publogo-soon { background: rgb(157,157,157)}
+        .pred {
+            padding: 2px 0;
+            margin-top: 5px;
+            border-radius: .25rem;
+            display: inline-block;
+        }
+
+        .pred.hover {
+            padding: 2px 4px;
+            background-color: rgb(52, 58, 64);
+            color: #fff;
+            word-break: break-all;
+        }
+
+        .gt {
+            padding: 2px 4px;
+            border: 1px rgb(52, 58, 64) solid;
+            /*color: #fff;*/
+            border-radius: .25rem;
+            display: inline-block;
+            margin-top: 5px;
+            word-break: break-all;
+            transition: all 0.12s ease-in;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+        }
+
+        .gt:hover {
+            background-color: rgba(52, 58, 64, 0.2);
+        }
+
+        .pct {
+            font-size: 0.85em;
+            /*margin-left: 8px;*/
+            /*word-break: break-word;*/
+            word-break: break-word;
+            display: none;
+        }
+
+        .pred.hover .pct {
+            display: inline;
+        }
+
+        .pred.hover .predw {
+            margin-right: 8px;
+        }
+
+        .ptep p {
+            padding: 2px 0;
+            display: inline-block;
+            margin: 0;
+            margin-top: 5px;
+        }
+
+        /*  .gt:hover:after {
+              position: absolute;
+              content: "";
+              height: calc(100% + 100px);
+              top: -50px;
+              left: -100px;
+              right: -100px;
+              !*background-color: rgba(255,0,0,0.5);*!
+          }*/
+
+        @media (max-width: 767px) {
+
+            .abstract {
+                display: block;
+            }
+
+            .publications {
+                display: block;
+            }
+
+            .teaser {
+                text-align: center;
+            }
+
+            .captioncont {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .figcont {
+                display: inline-block;
+            }
+
+            .abstracttext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .publicationstext {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .papercont {
+                padding: 0;
+                text-align: center;
+            }
+
+
+            .papersubcont {
+                display: inline-block !important;
+                text-align: center;
+            }
+
+            .paper {
+            }
+
+            .paperinfo {
+            }
+
+            .ptep {
+                grid-template-columns: repeat(3, minmax(90px, 1fr)) 1px minmax(90px, 1fr);
+            }
+
+            pre {
+                max-width: 350px;
+                text-align: left;
+            }
+
+            .pred {
+                /*word-break: break-word;*/
+                word-break: break-all;
+            }
+
+            .ptgrid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+
+            .pct {
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .container-fluid {
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid text-dark p-5">
+    <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+        <h2>Etc...</h2>
+        <div class="authors mt-4">
+            <a href="https://www.kkwock.com/home.html" class="btn btn-outline-primary">Home<sup></sup></a>
+            <a href="https://www.kkwock.com/research.html" class="btn btn-outline-primary">Research<sup></sup></a>
+            <a href="https://www.kkwock.com/publications.html" class="btn btn-outline-primary">Publications<sup></sup></a>
+            <a href="https://www.kkwock.com/about-me.html" class="btn btn-outline-primary">About Me<sup></sup></a>
+            <a href="https://www.kkwock.com/etc.html" class="btn btn-outline-primary">Etc...<sup></sup></a>
+        </div>
+    </div>
+
+    <div class="paperhi">
+        <h4><b>Coming soon</b></h4>
+            <!-- <section class="abstract mt-4">
+                <div class="teaser p-3 p-md-0">
+                    <div style="position: relative" class="figcont">
+                        <img src="res_UCNP.png" class="teaserfig" alt="Teaser figure"/>
+                    </div>
+                    <div class="captioncont">
+                        <span class="caption mt-2"><b> A single upconverting nanoparticle.</b>
+                            Top 5 songs in my playlist, 
+                            She Still Loves Me,
+                            Nothing to Find, War on Drugs 
+                            Old School Feeling Rebelution 
+                            One Drop, Bob Marley
+                            Its Funny 
+                            Instagram
+                            hobbies: hiking, photography, playing music, window shopping, science policy, 
+                            Book I'm currently reading
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </span>
+                    </div>
+                </div>
+    <section class="paper p-3 p-md-0 mt-4">
+        <h4><b>Honors</b></h4>
+        Columbia University, School of International and Public Affairs – International Fellow <br>
+        SPIE Optics and Photonics Education Scholar <br>
+        DOE NNSA Laboratory Residency Graduate Fellow – Los Alamos & Sandia National Laboratories <br>
+        NSF Graduate Research Fellowship Program – Honorable Mention <br>
+        QISE-NET Fellow – University of Chicago <br>
+        National Physical Science Consortium Fellow – Los Alamos National Laboratory <br>
+    </section>
+</div>
+
+<section class="paper p-3 p-md-0 mt-4" style="font-size: 0.9em!important;">
+    <h4><b>My current top 5 songs</b></h4>
+    <p>
+        We propose a meta-learning approach that learns to learn a visual language model for generalization.
+        We construct training episodes containing a reference set of text-image scenes and a target example.
+        To train the model, we mask input elements from the target, and ask the model to reconstruct them by
+        pointing to them in the reference set.
+        Our model can describe scenes with words not seen during training by pointing to them.
+    </p>
+    <div class="ptgrid">
+
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res1_0.png"></div>
+            <div class="im1"><img src="res1_1.png"></div>
+            <div class="im2"><img src="res1_2.png"></div>
+            <div class="imtgt"><img src="res1_3.png"></div>
+            <div class="txt0"> <span class="pred"><span class="predw">remove</span><span
+                    class="pct">3%</span></span>
+                <p>skin</p>
+                <p>of</p>
+                <p>garlic</p></div>
+            <div class="txt1">
+            <span class="pred"><span class="predw">take</span><span
+                    class="pct">3%</span></span>
+                <p>the</p>
+                <p>peel</p>
+                <p>off</p>
+                <p>of</p>
+                <p>the</p>
+                <p>onion</p>
+            </div>
+            <div class="txt2">
+            <span class="pred"><span class="predw">gather</span><span
+                    class="pct">93%</span></span>
+                <p>pieces</p>
+                <p>of</p>
+                <p>pepper</p>
+                <p>from</p>
+                <p>sink</p>
+            </div>
+            <div class="txttgt">
+                <div class="gt" data-gt="gather" style="width:4em" data-toggle="tooltip" data-placement="bottom"
+                     title="Hover over masked words to view ground truth and model predictions" id="firstgt"  >MASK</div>
+                <p>carrot</p>
+                <p>peelings</p>
+            </div>
+        </div>
+
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res2_0.png"></div>
+            <div class="im1"><img src="res2_1.png"></div>
+            <div class="im2"><img src="res2_2.png"></div>
+            <div class="imtgt"><img src="res2_3.png"></div>
+            <div class="txt0">
+                <p>open</p>
+                <p>the</p>
+                <span class="pred"><span class="predw">cupboard</span><span
+                        class="pct">4%</span></span>
+            </div>
+            <div class="txt1">
+                <p>wash</p>
+                <p>plates</p>
+                <p>with</p>
+                <p>rag</p>
+            </div>
+            <div class="txt2">
+                <p>close</p>
+                <span class="pred"><span class="predw">oven</span><span
+                        class="pct">95%</span></span>
+            </div>
+            <div class="txttgt">
+                <p>switch</p>
+                <p>off</p>
+                <div class="gt" data-gt="oven" style="width:4em">MASK</div>
+                <p>on</p>
+                <p>the</p>
+                <p>right</p>
+            </div>
+        </div>
+
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res3_0.png"></div>
+            <div class="im1"><img src="res3_1.png"></div>
+            <div class="im2"><img src="res3_2.png"></div>
+            <div class="imtgt"><img src="res3_3.png"></div>
+            <div class="txt0"> <span class="pred"><span class="predw">grab</span><span
+                    class="pct">7%</span></span>
+                <p>pan</p>
+            </div>
+            <div class="txt1">
+            <span class="pred"><span class="predw">place</span><span
+                    class="pct">45%</span></span>
+                <p>tablecloth</p>
+            </div>
+            <div class="txt2">
+            <span class="pred"><span class="predw">put</span><span
+                    class="pct">47%</span></span>
+                <p>bag</p>
+                <p>into</p>
+                <p>the</p>
+                <p>bin</p>
+            </div>
+            <div class="txttgt">
+                <div class="gt" data-gt="grab" style="width:4em">MASK</div>
+                <p>plate</p>
+            </div>
+        </div>
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res0_0.png"></div>
+            <div class="im1"><img src="res0_1.png"></div>
+            <div class="im2"><img src="res0_2.png"></div>
+            <div class="imtgt"><img src="res0_3.png"></div>
+            <div class="txt0"><p>get</p> <span class="pred"><span class="predw">avocado</span><span
+                    class="pct">62%</span></span></div>
+            <div class="txt1"><p>still</p>
+                <p>taking</p>  <span
+                        class="pred"><span class="predw">skin</span><span class="pct">33%</span></span>
+                <p>off</p>  <span class="pred"><span class="predw">fish</span><span
+                        class="pct">3%</span></span></div>
+            <div class="txt2"><p>stir</p>
+                <p>rice</p>
+                <p>into</p>
+                <p>pan</p>
+            </div>
+            <div class="txttgt"><p>peel</p>
+                <div class="gt" style="width:5em" data-gt="avocado">MASK
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="paper p-3 p-md-0 mt-4" style="font-size: 0.9em!important;">
+    <h4><b>Hobbying</b></h4>
+    <p>
+        We propose a meta-learning approach that learns to learn a visual language model for generalization.
+        We construct training episodes containing a reference set of text-image scenes and a target example.
+        To train the model, we mask input elements from the target, and ask the model to reconstruct them by
+        pointing to them in the reference set.
+        Our model can describe scenes with words not seen during training by pointing to them.
+    </p>
+    <div class="ptgrid">
+
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res1_0.png"></div>
+            <div class="im1"><img src="res1_1.png"></div>
+            <div class="im2"><img src="res1_2.png"></div>
+            <div class="imtgt"><img src="res1_3.png"></div>
+            <div class="txt0"> <span class="pred"><span class="predw">remove</span><span
+                    class="pct">3%</span></span>
+                <p>skin</p>
+                <p>of</p>
+                <p>garlic</p></div>
+            <div class="txt1">
+            <span class="pred"><span class="predw">take</span><span
+                    class="pct">3%</span></span>
+                <p>the</p>
+                <p>peel</p>
+                <p>off</p>
+                <p>of</p>
+                <p>the</p>
+                <p>onion</p>
+            </div>
+            <div class="txt2">
+            <span class="pred"><span class="predw">gather</span><span
+                    class="pct">93%</span></span>
+                <p>pieces</p>
+                <p>of</p>
+                <p>pepper</p>
+                <p>from</p>
+                <p>sink</p>            </div>
+            <div class="txttgt">
+                <div class="gt" data-gt="gather" style="width:4em" data-toggle="tooltip" data-placement="bottom"
+                     title="Hover over masked words to view ground truth and model predictions" id="firstgt"  >MASK</div>
+                <p>carrot</p>
+                <p>peelings</p>
+            </div>
+        </div>
+
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res2_0.png"></div>
+            <div class="im1"><img src="res2_1.png"></div>
+            <div class="im2"><img src="res2_2.png"></div>
+            <div class="imtgt"><img src="res2_3.png"></div>
+            <div class="txt0">
+                <p>open</p>
+                <p>the</p>
+                <span class="pred"><span class="predw">cupboard</span><span
+                        class="pct">4%</span></span>
+            </div>
+            <div class="txt1">
+                <p>wash</p>
+                <p>plates</p>
+                <p>with</p>
+                <p>rag</p>
+            </div>
+            <div class="txt2">
+                <p>close</p>
+                <span class="pred"><span class="predw">oven</span><span
+                        class="pct">95%</span></span>
+            </div>
+            <div class="txttgt">
+                <p>switch</p>
+                <p>off</p>
+                <div class="gt" data-gt="oven" style="width:4em">MASK</div>
+                <p>on</p>
+                <p>the</p>
+                <p>right</p>
+            </div>
+        </div>
+
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res3_0.png"></div>
+            <div class="im1"><img src="res3_1.png"></div>
+            <div class="im2"><img src="res3_2.png"></div>
+            <div class="imtgt"><img src="res3_3.png"></div>
+            <div class="txt0"> <span class="pred"><span class="predw">grab</span><span
+                    class="pct">7%</span></span>
+                <p>pan</p>
+            </div>
+            <div class="txt1">
+            <span class="pred"><span class="predw">place</span><span
+                    class="pct">45%</span></span>
+                <p>tablecloth</p>
+            </div>
+            <div class="txt2">
+            <span class="pred"><span class="predw">put</span><span
+                    class="pct">47%</span></span>
+                <p>bag</p>
+                <p>into</p>
+                <p>the</p>
+                <p>bin</p>
+            </div>
+            <div class="txttgt">
+                <div class="gt" data-gt="grab" style="width:4em">MASK</div>
+                <p>plate</p>
+            </div>
+        </div>
+        <div class="ptep">
+            <div class="refsetlbl">Reference set</div>
+            <div class="tgtlbl ">Target example</div>
+            <div class="im0"><img src="res0_0.png"></div>
+            <div class="im1"><img src="res0_1.png"></div>
+            <div class="im2"><img src="res0_2.png"></div>
+            <div class="imtgt"><img src="res0_3.png"></div>
+            <div class="txt0"><p>get</p> <span class="pred"><span class="predw">avocado</span><span
+                    class="pct">62%</span></span></div>
+            <div class="txt1"><p>still</p>
+                <p>taking</p>  <span
+                        class="pred"><span class="predw">skin</span><span class="pct">33%</span></span>
+                <p>off</p>  <span class="pred"><span class="predw">fish</span><span
+                        class="pct">3%</span></span></div>
+            <div class="txt2"><p>stir</p>
+                <p>rice</p>
+                <p>into</p>
+                <p>pan</p>
+            </div>
+            <div class="txttgt"><p>peel</p>
+                <div class="gt" style="width:5em" data-gt="avocado">MASK
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section> -->
+
+
+
+<footer>
+    <div class="container-fluid text-dark p-5">
+        <div class="px-3 py-3 pb-md-4 mx-auto text-center">
+            <p style="color:gray;font-size:10px;">Website template was largely inspired by Dave Epstein</p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function RGBA(e, alpha) { //e = jQuery element, alpha = background-opacity
+        b = e.css('backgroundColor');
+        e.css('backgroundColor', 'rgba' + b.slice(b.indexOf('('), ((b.match(/,/g).length == 2) ? -1 : b.lastIndexOf(',') - b.length)) + ', ' + alpha + ')');
+    }
+
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('#firstgt').tooltip('show').on('hidden.bs.tooltip', function () {
+            $(this).tooltip('dispose');
+        });
+        $('.gt').mouseenter(function (e) {
+            $('#firstgt').tooltip('hide');
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text($(this).attr('data-gt'));
+            });
+            $(this).closest('.ptep').find('.pred').addClass('hover').each(function () {
+                var a = $(this).find('.pct').text().slice(0, -1) / 100;
+                RGBA($(this), a);
+                if (a < 0.2) {
+                    $(this).css('color', 'rgb(52, 58, 64)')
+                }
+            });
+        }).mouseleave(function (e) {
+            $(this).closest('.ptep').find('.gt').each(function () {
+                $(this).text('MASK');
+            });
+            $(this).closest('.ptep').find('.pred').removeClass('hover').each(function () {
+                $(this).css('color', '');
+                $(this).css('backgroundColor', '');
+            });
+        });
+
+    })
+</script>
+</body>
+</html>
